@@ -6,7 +6,7 @@ public class Game extends Player {
     }
     public static void main(String[] args) {
         Player[] players = spawnPlayers(numPlayers);
-        for(int i=0; i<numPlayers; i++){
+        for(int i=0; i<numPlayers-1; i++){
             fight(players[i], players[i+1]);
             whoWins(players[i], players[i+1]);
         }
