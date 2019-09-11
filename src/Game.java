@@ -1,12 +1,9 @@
 import java.util.Random;
-public class Rules {
+public class Game {
     public static void main(String[] args) {
-
+        Player[] players = spawnPlayers(100);
     }
-    public int fight(Player player1, Player player2){
-
-    }
-    public Player[] spawnPlayers(int num){
+    public static Player[] spawnPlayers(int num){
         Player[] arrP = new Player[num];
         for (int i = 0; i < num; i++) {
             arrP[i] = new Player(i, 0, randStrategy());
