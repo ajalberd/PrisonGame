@@ -62,7 +62,7 @@ public class Player {
             player2.betray = false;
         }
     }
-    public void fight(Player player1, Player player2){ //Fight and modify money
+    public static void fight(Player player1, Player player2){ //Fight and modify money
         if(player1.betray && player2.betray){
             player1.addMoney(1);
             player2.addMoney(1);
@@ -78,6 +78,17 @@ public class Player {
         if(!player1.betray && !player2.betray) {
             player1.addMoney(4);
             player2.addMoney(4);
+        }
+    }
+    public static void whoWins(Player player1, Player player2){
+        if(player1.getMoney() > player2.getMoney()){
+            System.out.printf("%s strategy wins over %s strategy with %d money versus %d money \n", player1.getStrategy().name(), player2.getStrategy().name(), player1.getMoney(), player2.getMoney());
+        }
+        if(player2.getMoney() > player1.getMoney()){
+            System.out.printf("%s strategy wins over %s strategy with %d money versus %d money \n", player2.getStrategy().name(), player1.getStrategy().name(), player2.getMoney(), player1.getMoney());
+        }
+        if(player2.getMoney() == player1.getMoney()){
+            System.out.printf("%s strategy is equal to %s strategy with %d money each\n", player2.getStrategy().name(), player1.getStrategy().name(), player2.getMoney());
         }
     }
 }

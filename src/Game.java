@@ -1,7 +1,15 @@
 import java.util.Random;
-public class Game {
+public class Game extends Player {
+    static int numPlayers = 6;
+    public Game(int name, int money, Strategies strategy) {
+        super(name, money, strategy);
+    }
     public static void main(String[] args) {
-        Player[] players = spawnPlayers(100);
+        Player[] players = spawnPlayers(numPlayers);
+        for(int i=0; i<numPlayers; i++){
+            fight(players[i], players[i+1]);
+            whoWins(players[i], players[i+1]);
+        }
     }
     public static Player[] spawnPlayers(int num){
         Player[] arrP = new Player[num];
@@ -12,7 +20,7 @@ public class Game {
     }
     public static Strategies randStrategy(){
         Random random = new Random();
-        return values()[random.nextInt(values().length)];
+        return Strategies.values()[random.nextInt(Strategies.values().length)];
     }
 
 }
